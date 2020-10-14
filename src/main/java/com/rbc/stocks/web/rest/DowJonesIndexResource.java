@@ -55,16 +55,10 @@ public class DowJonesIndexResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
-    /**
-     * {@code GET  /dow-jones-indices/:id} : get the "id" dowJonesIndex.
-     *
-     * @param id the id of the dowJonesIndex to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the dowJonesIndex, or with status {@code 404 (Not Found)}.
-     */
-    @GetMapping("/dow-jones-indices/{id}")
-    public ResponseEntity<DowJonesIndex> getDowJonesIndex(@PathVariable Long id) {
-        log.debug("REST request to get DowJonesIndex : {}", id);
-        Optional<DowJonesIndex> dowJonesIndex = dowJonesIndexRepository.findById(id);
+    @GetMapping("/dow-jones-indices-stock/{stock}")
+    public ResponseEntity<DowJonesIndex> getDowJonesIndexByStock(@PathVariable String stock) {
+        log.debug("REST request to get DowJonesIndex : {}", stock);
+        Optional<DowJonesIndex> dowJonesIndex = dowJonesIndexRepository.findByStock(stock);
         return ResponseUtil.wrapOrNotFound(dowJonesIndex);
     }
 }
