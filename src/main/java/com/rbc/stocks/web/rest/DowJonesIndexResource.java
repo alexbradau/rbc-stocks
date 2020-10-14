@@ -55,6 +55,12 @@ public class DowJonesIndexResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    /**
+     * {@code GET  /dow-jones-indices/:stock} : get the "stock" dowJonesIndex.
+     *
+     * @param stock the stock of the dowJonesIndex to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the dowJonesIndex, or with status {@code 404 (Not Found)}.
+     */
     @GetMapping("/dow-jones-indices-stock/{stock}")
     public ResponseEntity<DowJonesIndex> getDowJonesIndexByStock(@PathVariable String stock) {
         log.debug("REST request to get DowJonesIndex : {}", stock);
