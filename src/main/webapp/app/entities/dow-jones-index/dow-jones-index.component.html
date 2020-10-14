@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span>Dow Jones Indices</span>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="dowJonesIndices?.length === 0">
+        <span>No dowJonesIndices found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="dowJonesIndices && dowJonesIndices.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quarter"><span>Quarter</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="stock"><span>Stock</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span>Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="open"><span>Open</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="high"><span>High</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="low"><span>Low</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="close"><span>Close</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="volume"><span>Volume</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="percentChangePrice"><span>Percent Change Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="percentChangeVolumeOverLastWeek"><span>Percent Change Volume Over Last Week</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="previousWeeksVolume"><span>Previous Weeks Volume</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nextWeeksOpen"><span>Next Weeks Open</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nextWeeksClose"><span>Next Weeks Close</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="percentChangeNextWeeksPrice"><span>Percent Change Next Weeks Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="daysToNextDividend"><span>Days To Next Dividend</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="percentReturnNextDividend"><span>Percent Return Next Dividend</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dowJonesIndex of dowJonesIndices ;trackBy: trackId">
+                    <td><a [routerLink]="['/dow-jones-index', dowJonesIndex.id, 'view']">{{ dowJonesIndex.id }}</a></td>
+                    <td>{{ dowJonesIndex.quarter }}</td>
+                    <td>{{ dowJonesIndex.stock }}</td>
+                    <td>{{ dowJonesIndex.date | date:'mediumDate' }}</td>
+                    <td>{{ dowJonesIndex.open }}</td>
+                    <td>{{ dowJonesIndex.high }}</td>
+                    <td>{{ dowJonesIndex.low }}</td>
+                    <td>{{ dowJonesIndex.close }}</td>
+                    <td>{{ dowJonesIndex.volume }}</td>
+                    <td>{{ dowJonesIndex.percentChangePrice }}</td>
+                    <td>{{ dowJonesIndex.percentChangeVolumeOverLastWeek }}</td>
+                    <td>{{ dowJonesIndex.previousWeeksVolume }}</td>
+                    <td>{{ dowJonesIndex.nextWeeksOpen }}</td>
+                    <td>{{ dowJonesIndex.nextWeeksClose }}</td>
+                    <td>{{ dowJonesIndex.percentChangeNextWeeksPrice }}</td>
+                    <td>{{ dowJonesIndex.daysToNextDividend }}</td>
+                    <td>{{ dowJonesIndex.percentReturnNextDividend }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/dow-jones-index', dowJonesIndex.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="dowJonesIndices && dowJonesIndices.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

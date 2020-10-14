@@ -1,0 +1,93 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "quarter",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMin": "1",
+      "fieldValidateRulesMax": "4"
+    },
+    {
+      "fieldName": "stock",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "1",
+      "fieldValidateRulesMaxlength": "5"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "open",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "high",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "low",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "close",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "volume",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "percentChangePrice",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "percentChangeVolumeOverLastWeek",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "previousWeeksVolume",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "nextWeeksOpen",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "nextWeeksClose",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "percentChangeNextWeeksPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "daysToNextDividend",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "percentReturnNextDividend",
+      "fieldType": "Double"
+    }
+  ],
+  "changelogDate": "20201014020857",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "no",
+  "entityTableName": "dow_jones_index",
+  "databaseType": "sql",
+  "readOnly": true,
+  "jpaMetamodelFiltering": false,
+  "pagination": "pagination"
+}

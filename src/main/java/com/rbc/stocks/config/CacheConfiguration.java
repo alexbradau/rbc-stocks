@@ -48,6 +48,7 @@ public class CacheConfiguration {
             createCache(cm, com.rbc.stocks.domain.User.class.getName());
             createCache(cm, com.rbc.stocks.domain.Authority.class.getName());
             createCache(cm, com.rbc.stocks.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.rbc.stocks.domain.DowJonesIndex.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

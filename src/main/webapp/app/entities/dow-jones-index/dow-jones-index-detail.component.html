@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dowJonesIndex">
+            <h2><span>Dow Jones Index</span> {{ dowJonesIndex.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Quarter</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.quarter }}</span>
+                </dd>
+                <dt><span>Stock</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.stock }}</span>
+                </dd>
+                <dt><span>Date</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.date }}</span>
+                </dd>
+                <dt><span>Open</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.open }}</span>
+                </dd>
+                <dt><span>High</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.high }}</span>
+                </dd>
+                <dt><span>Low</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.low }}</span>
+                </dd>
+                <dt><span>Close</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.close }}</span>
+                </dd>
+                <dt><span>Volume</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.volume }}</span>
+                </dd>
+                <dt><span>Percent Change Price</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.percentChangePrice }}</span>
+                </dd>
+                <dt><span>Percent Change Volume Over Last Week</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.percentChangeVolumeOverLastWeek }}</span>
+                </dd>
+                <dt><span>Previous Weeks Volume</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.previousWeeksVolume }}</span>
+                </dd>
+                <dt><span>Next Weeks Open</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.nextWeeksOpen }}</span>
+                </dd>
+                <dt><span>Next Weeks Close</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.nextWeeksClose }}</span>
+                </dd>
+                <dt><span>Percent Change Next Weeks Price</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.percentChangeNextWeeksPrice }}</span>
+                </dd>
+                <dt><span>Days To Next Dividend</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.daysToNextDividend }}</span>
+                </dd>
+                <dt><span>Percent Return Next Dividend</span></dt>
+                <dd>
+                    <span>{{ dowJonesIndex.percentReturnNextDividend }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+        </div>
+    </div>
+</div>
