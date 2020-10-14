@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.rbc.stocks"
+    },
+    "jhipsterVersion": "6.10.3",
+    "applicationType": "monolith",
+    "baseName": "rbcstocks",
+    "packageName": "com.rbc.stocks",
+    "packageFolder": "com/rbc/stocks",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZTQzNzI2NzkwMDI1ZDRjYjY1Mjc5NmI1YjgyM2E0NGVhMjUwZjQ0NjgyNjkxYTI4ZGYxZmVkM2JjMzZmZjg5ODEyMDU1YjQ1NjQ5MGM0N2I0M2ExYzY1ZThlZmQwMGE1NTk4ODAzOTAzMDk3MDE1ZmE5OWY0OWMyNGI5NjNkZDQ=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "cyborg",
+    "clientThemeVariant": "dark",
+    "creationTimestamp": 1602638174045,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
