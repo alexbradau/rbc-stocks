@@ -55,6 +55,7 @@ public class DowJonesIndexService {
         djiDTO.save(index);
         return index;
     }
+    
     private DowJonesIndex parseRecord(String record){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("M/d/yyyy");
         String [] data = record.split(",");
