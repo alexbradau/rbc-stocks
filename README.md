@@ -35,8 +35,15 @@ Add the `help` flag on any command to see how you can use it. For example, `npm 
 
 The `npm run` command will list all of the scripts available to run for this project.
 
+## Front End
+
+The front end can be accessed at localhost:8080.
+
+The Dow Jones Indices can be found under Entities in the admin menu, logging in as admin/admin
+
 ## REST API
-The following can be tested using Postman while the server is running:
+The following can be tested using Postman while the server is running.
+Authentication is either user/user or admin/admin
 
 GET all Dow Jones Indices
 
