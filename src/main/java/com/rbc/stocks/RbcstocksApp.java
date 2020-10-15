@@ -1,9 +1,14 @@
 package com.rbc.stocks;
 
-import com.rbc.stocks.config.ApplicationProperties;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.Collection;
 
-import io.github.jhipster.config.DefaultProfileUtil;
-import io.github.jhipster.config.JHipsterConstants;
+import javax.annotation.PostConstruct;
+
+import com.rbc.stocks.config.ApplicationProperties;
+import com.rbc.stocks.service.dto.DowJonesIndexDTO;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -13,14 +18,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import javax.annotation.PostConstruct;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.Arrays;
-import java.util.Collection;
+import io.github.jhipster.config.DefaultProfileUtil;
+import io.github.jhipster.config.JHipsterConstants;
 
 @SpringBootApplication
+@EnableJpaRepositories(basePackageClasses= {DowJonesIndexDTO.class})
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
 public class RbcstocksApp {
 
