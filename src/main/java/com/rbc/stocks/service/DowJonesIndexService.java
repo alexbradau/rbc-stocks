@@ -1,11 +1,14 @@
 package com.rbc.stocks.service;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.rbc.stocks.domain.DowJonesIndex;
 import com.rbc.stocks.service.dto.DowJonesIndexDTO;
@@ -15,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Transactional
@@ -25,23 +29,32 @@ public class DowJonesIndexService {
     @Autowired
     private DowJonesIndexDTO djiDTO;
 
-    public void saveDowJonesIndexBulkData(){
-        String line = "";
+    public List<DowJonesIndex> saveDowJonesIndexBulkData(MultipartFile file){
         
+        List<DowJonesIndex> indexList = new ArrayList<DowJonesIndex>();
+        String line = "";
+
         try{
-            BufferedReader br = new BufferedReader(new FileReader("files/dow_jones_index.data"));
+            InputStream is = file.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
             br.readLine();
             while((line=br.readLine()) != null){
                 line = line.replaceAll("[\\$]", "");
-                djiDTO.save(parseRecord(line));
+                DowJonesIndex index = parseRecord(line);
+                djiDTO.save(index);
+                indexList.add(index);
             }
             br.close();
         } catch (IOException e){
             e.printStackTrace();
         }
-        
+        return indexList;
     }
 
+    public DowJonesIndex createNewIndex(DowJonesIndex index){
+        djiDTO.save(index);
+        return index;
+    }
     private DowJonesIndex parseRecord(String record){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("M/d/yyyy");
         String [] data = record.split(",");
