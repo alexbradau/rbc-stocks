@@ -1,6 +1,6 @@
 # rbcstocks
 
-## Development
+## Install
 
 Run the following command in the root directory of the project to build and start the application server:
 
@@ -32,7 +32,7 @@ localhost:8080/api/dow-jones-indices/{stock}
 
 localhost:8080/api/dow-jones-indices
 
-Here is a test record you may use in the body of the request:
+Select a raw body with JSON type in Postman. Here is a test record you may use in the body of the request:
 
 {"quarter": 1,"stock": "TEST","date": "2011-01-07","open": 15.82,"high": 16.72,"low": 15.78,"close": 16.42,"volume": 239655616,"percentChangePrice": 3.79267,"percentChangeVolumeOverLastWeek": null,"previousWeeksVolume": null,"nextWeeksOpen": 16.71,"nextWeeksClose": 15.97,"percentChangeNextWeeksPrice": -4.42849,"daysToNextDividend": 26,"percentReturnNextDividend": 0.182704}
 
