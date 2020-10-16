@@ -69,8 +69,8 @@ public class DowJonesIndexService {
         dowJonesIndex.setClose(new BigDecimal(data[6]));
         dowJonesIndex.setVolume(Integer.parseInt(data[7]));
         dowJonesIndex.setPercentChangePrice(Double.parseDouble(data[8]));
-        dowJonesIndex.setPercentChangeVolumeOverLastWeek(!data[9].isBlank() ? Double.parseDouble(data[9]) : null);
-        dowJonesIndex.setPreviousWeeksVolume(!data[10].isBlank() ? Double.parseDouble(data[10]) : null);
+        dowJonesIndex.setPercentChangeVolumeOverLastWeek(!data[9].isEmpty() ? Double.parseDouble(data[9]) : null);
+        dowJonesIndex.setPreviousWeeksVolume(!data[10].isEmpty() ? Double.parseDouble(data[10]) : null);
         dowJonesIndex.setNextWeeksOpen(new BigDecimal(data[11]));
         dowJonesIndex.setNextWeeksClose(new BigDecimal(data[12]));
         dowJonesIndex.setPercentChangeNextWeeksPrice(Double.parseDouble(data[13]));
